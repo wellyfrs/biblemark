@@ -1,0 +1,38 @@
+<div id="marking-control" class="d-none position-fixed bottom-0 p-4 m-auto w-100">
+  <div class="d-flex justify-content-center gap-3">
+    <div id="highlight-control" class="d-flex flex-wrap gap-2">
+      <template id="tpl-btn-highlight">
+        <button type="button" class="btn btn-highlight">
+          <span class="color-name visually-hidden"></span>
+        </button>
+      </template>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-note" data-bs-toggle="modal" data-bs-target="#note-modal">
+      <i class="bi bi-card-text note-icon"></i> Note
+    </button>
+  </div>
+</div>
+
+<div id="note-modal" class="modal fade" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">New note</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="note-textarea" placeholder="Note" maxlength="1024" required></textarea>
+          <label for="note-textarea">Note</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-note" id="btn-note">
+          <i class="bi bi-card-text note-icon"></i> Add note
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

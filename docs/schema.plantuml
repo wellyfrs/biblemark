@@ -1,0 +1,41 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class mark {
+   user_id: integer
+   color: text
+   note: text
+   marked: datetime
+   id: integer
+}
+class marked_verse {
+   version_id: text
+   book_id: text
+   chapter_id: text
+   verse_number: integer
+   mark_id: integer
+   visibility: boolean
+   id: integer
+}
+class user {
+   username: text
+   password: text
+   display_name: text
+   created: datetime
+   id: integer
+}
+class version {
+   external_id: text
+   lang: text
+   name: text
+   disabled: boolean
+   internal_id: text
+}
+
+mark          -[#595959,plain]-^  user         : "user_id:id"
+marked_verse  -[#595959,plain]-^  mark         : "mark_id:id"
+marked_verse  -[#595959,plain]-^  version      : "version_id:internal_id"
+@enduml

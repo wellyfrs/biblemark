@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-4 my-2">
+      <div class="form-floating">
+        <select class="form-select" id="version" aria-label="Select Bible version" disabled>
+          <option>Loading...</option>
+        </select>
+        <label for="version">Version</label>
+      </div>
+    </div>
+
+    <div class="col-md-4 my-2">
+      <div class="form-floating">
+        <select class="form-select" id="book" aria-label="Select book" disabled>
+          <option>Loading...</option>
+        </select>
+        <label for="book">Book</label>
+      </div>
+    </div>
+
+    <div class="col-md-4 my-2">
+      <div class="form-floating">
+        <select class="form-select" id="chapter" aria-label="Select chapter" disabled>
+          <option>Loading...</option>
+        </select>
+        <label for="chapter">Chapter</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chapter-nav">
+  <button id="prev" class="btn-chapter-nav position-fixed top-50 start-0 m-4" disabled>
+    <i class="bi bi-arrow-left-circle-fill"></i>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button id="next" class="btn-chapter-nav position-fixed top-50 end-0 m-4" disabled>
+    <i class="bi bi-arrow-right-circle-fill"></i>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

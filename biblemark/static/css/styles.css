@@ -1,0 +1,119 @@
+.btn-chapter-nav {
+    z-index: 1;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 38px;
+    line-height: 1em;
+    color: darkgray;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.btn-chapter-nav i {
+    display: block;
+}
+
+.btn-chapter-nav:hover {
+    color: gray;
+}
+
+.btn-chapter-nav:disabled {
+    color: lightgray;
+}
+
+.scripture-styles.markable .verse-span {
+    cursor: pointer;
+}
+
+.verse-span.hover {
+    border-bottom: 1px solid;
+}
+
+.verse-span.selected {
+    border-bottom: 2px solid;
+}
+
+.note-icon::before,
+.verse-span.noted::before {
+    content: "\f228";
+    margin: 0 5px;
+    font-family: bootstrap-icons !important;
+}
+
+.btn-highlight {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-highlight.remove::before,
+.btn-highlight.remove::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  background-color: #000;
+}
+
+.btn-highlight.remove::before {
+  transform: rotate(45deg);
+}
+
+.btn-highlight.remove::after {
+  transform: rotate(-45deg);
+}
+
+.highlight-card .card-body {
+    background-color: rgba(255, 255, 255, .4);
+}
+
+#note-textarea {
+    height: 150px;
+}
+
+.note-panel-body {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.note {
+    position: absolute;
+    width: 100%;
+    line-height: 1.3em;
+    font-size: .875em;
+}
+
+.note-body {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    overflow: auto;
+}
+
+.note-status {
+    position: absolute;
+    bottom: -1.3em;
+    right: 0;
+    color: lightslategray;
+}
+
+#note-panel-merged {
+    display: none;
+}
+
+/* Breakpoint needs to match the JavaScript constant */
+@media (max-width: 992px) {
+    #note-panel-merged {
+        display: flex;
+    }
+
+    .note {
+        position: relative;
+        top: unset;
+    }
+}

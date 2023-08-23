@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-6 my-5">{{ user["name"] }} (@{{ user["username"] }})</h1>
+
+    <p><a href="{{ url_for('mark.highlights') }}">{{ highlights }} highlights</a></p>
+    <p><a href="{{ url_for('mark.notes') }}">{{ notes }} notes</a></p>
+</div>
+{% endblock %}

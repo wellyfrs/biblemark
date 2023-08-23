@@ -1,0 +1,28 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+SHOW_PERSON_OUTLINE()
+
+title Container diagram for Biblemark
+
+Person(user, User, "A user of the application")
+
+System_Boundary(c1, "Biblemark") {
+    Container(app, "Web Application", "Python, Flask", "Delivers the static content\nand the application SPA")
+    Container(spa, "Single-Page App", "Vanilla ES6", "Provides functionality to users via their web browser")
+    ContainerDb(database, "Database", "SQL Database", "Stores user registration information, marks, supported versions, etc.")
+}
+
+System_Ext(external_bible_api, "External Bible API", "Provides Bible content.")
+
+Rel(user, app, "Uses", "HTTPS")
+Rel(user, spa, "Uses", "HTTPS")
+
+Rel_Neighbor(app, spa, "Delivers")
+Rel_Neighbor(spa, app, "Uses", "async, JSON/HTTPS")
+Rel(app, database, "Reads from and writes to", "sync, Python")
+
+Rel(app, external_bible_api, "Uses", "sync, HTTPS")
+
+SHOW_LEGEND()
+@enduml

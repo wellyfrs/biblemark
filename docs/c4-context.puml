@@ -1,0 +1,16 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+SHOW_PERSON_OUTLINE()
+LAYOUT_WITH_LEGEND()
+
+title System Context diagram for Biblemark
+
+Person(user, "User", "A user of the application.")
+System(sys, "Biblemark", "Allows users to read\nand mark the Bible.")
+
+System_Ext(external_api, "External Bible API", "Provides Bible content.")
+
+Rel(user, sys, "Uses")
+Rel_Neighbor(sys, external_api, "Uses")
+@enduml

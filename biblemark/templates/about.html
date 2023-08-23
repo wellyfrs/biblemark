@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-6 my-5">About</h1>
+
+    <p>Biblemark is a web application designed to enhance your Bible reading experience
+        by allowing you to engage with the text through highlights and notes.
+        This is my final project for the CS50&#39;s Introduction to Computer Science course,
+        which I participated as a student in the more comfortable category.</p>
+
+    <p>Check out a quick demo on YouTube: <a href="link">Watch Demo</a></p>
+
+    <h2 id="domain-context">Domain context</h2>
+
+    <p>There are numerous Bible versions that vary in language and also in structure.
+        Each version comprises a collection of books, historically organized into chapters and verses.
+        However, it&#39;s important to note that not all books or chapters contain scriptural content;
+        some may include extra material books or introduction chapters.</p>
+
+    <p>A verse is the smallest distinct unit and can be uniquely identified
+        by a combination of version, book, chapter, and verse number.
+        Abbreviations are commonly used for versions and books,
+        and a consistent referencing format exists,
+        with some variations depending on location.</p>
+
+    <p>While reading the Bible, highlighting certain passages
+        with a color-coded system has become a common practice,
+        and also appending personal notes alongside verses.</p>
+
+    <p>These are the focal point of the application.</p>
+
+    <h2 id="key-features">Key features</h2>
+
+    <ul>
+        <li>Highlighting and adding notes to individual verses or groups of verses.</li>
+        <li>Adding multiple notes to the same verse or group of verses.</li>
+        <li>Cross-version and cross-chapter highlighting and note capabilities.</li>
+        <li>Easily visualizing notes alongside the Bible content.</li>
+        <li>Utilizing multiple highlight colors and accommodating lengthy notes.</li>
+    </ul>
+
+    <p>For more details on architecture and related,
+        check the <a href="https://github.com/wellyfrs/biblemark" target="_blank">documentation</a>.</p>
+
+</div>
+{% endblock %}

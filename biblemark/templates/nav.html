@@ -1,0 +1,32 @@
+<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+  <div class="container-sm">
+    <a class="navbar-brand" href="{{ url_for('index') }}">Biblemark</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="me-auto">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('about.about') }}">About</a></li>
+          {% if g.principal %}
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('mark.highlights') }}">Highlights</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('mark.notes') }}">Notes</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="ms-auto">
+        <ul class="navbar-nav">
+        {% if g.principal %}
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('user.profile') }}">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Log out</a></li>
+        {% else %}
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('user.register') }}">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}">Sign in</a></li>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

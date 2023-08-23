@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Biblemark{% endblock %}
+
+{% block content %}
+
+    {% include 'bible/nav.html' %}
+
+    {% include 'bible/bible.html' %}
+
+    {% include 'bible/control.html' %}
+
+    {% include 'bible/notifier.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/spa/app.js') }}" type="module"></script>
+{% endblock %}

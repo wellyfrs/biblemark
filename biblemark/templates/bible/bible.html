@@ -1,0 +1,48 @@
+<div id="scripture-spinner" class="container">
+  <div class="d-flex justify-content-center">
+      <div class="spinner-border text-secondary m-5" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+  </div>
+</div>
+
+<div id="scripture-container" class="container position-relative my-5 invisible">
+  <div class="row justify-content-center">
+    <div class="col-lg-3">
+      <div id="note-panel-left" class="note-panel">
+        <div class="note-panel-body"></div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <h1 id="scripture-reference" class="text-center mb-5"></h1>
+      <div id="scripture-content" class="scripture-styles"></div>
+    </div>
+
+    <div class="col-lg-3">
+      <div id="note-panel-right" class="note-panel">
+        <div class="note-panel-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="note-panel-merged" class="row note-panel">
+    <div class="col-12">
+      <header class="note-panel-header">
+        <h6 class="my-3">Notes</h6>
+      </header>
+      <div class="note-panel-body d-flex gap-3"></div>
+    </div>
+  </div>
+</div>
+
+<template id="note-template">
+  <div class="card note">
+    <div class="card-header note-header d-flex justify-content-between">
+      <span class="note-reference"></span>
+      <button type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+    <div class="card-body note-body" contenteditable></div>
+    <div class="note-status"></div>
+  </div>
+</template>

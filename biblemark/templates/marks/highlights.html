@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}My highlights - Biblemark{% endblock %}
+
+{% block styles %}
+<style>
+{% for color in colors %}.highlight-color-{{ color[1:] }} { background-color: {{ color }} }
+{% endfor %}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-6 my-5">My highlights</h1>
+
+    <div class="row row-cols-1 row-cols-md-3 g-5 my-5" data-masonry='{"percentPosition": true }'>
+        {% if elements == 0 %}
+        <p>No highlights yet.</p>
+        {% endif %}
+        {% for item in marks %}
+        <div class="col">
+            <div class="card highlight-card border-light">
+                <div class="card-header d-flex justify-content-between highlight-color-{{ item['color'][1:] }}">
+                    <h6 class="m-0">{{ item['reference'] }}</h6>
+                    <button type="button" class="btn-close" aria-label="Close" data-id="{{ item['id'] }}"></button>
+                </div>
+
+                <div class="highlight-color-{{ item['color'][1:] }}">
+                    <div class="card-body">
+                        {% for passage in item['passages'] %}
+                        <figure class="passage">
+                            <blockquote class="blockquote">
+                                <div class="scripture-styles">{{ passage['content'] | safe }}</div>
+                            </blockquote>
+                            <figcaption>
+                                <cite>
+                                    <a class="card-link link-secondary"
+                                       href="{{ passage['link'] }}">{{ passage['reference'] }}</a>
+                                </cite>
+                            </figcaption>
+                        </figure>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="card-footer highlight-color-{{ item['color'][1:] }}">
+                    <small><time datetime="{{ item['marked'] }}">{{ item['marked'] | date }}</time></small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <div class="m-2">
+            <span>Page {{ page }} of {{ pages }} ({{ elements }} item(s))</span>
+        </div>
+
+        <div class="m-2">
+            <nav aria-label="Navigation">
+                <ul class="pagination justify-content-center m-0">
+                    <li class="page-item{% if page == 1 %} disabled{% endif %}">
+                        <a class="page-link" href="?page={{ page - 1 }}&size={{ size }}">Previous</a>
+                    </li>
+
+                    {% for i in range(1, pages + 1) %}
+                    {% if pages > 5 and i == page - 1 and page - 2 > 1 %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">...</a>
+                    </li>
+                    {% endif %}
+
+                    {% if (pages <= 5) or (i == 1) or (i == pages) or (i in range(page - 1, page + 2)) %}
+                    <li class="page-item{% if page == i %} active{% endif %}">
+                        <a class="page-link" href="?page={{ i }}&size={{ size }}">{{ i }}</a>
+                    </li>
+                    {% endif %}
+
+                    {% if pages > 5 and i == page + 1 and page + 2 < pages %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">...</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                    <li class="page-item{% if page == pages %} disabled{% endif %}">
+                        <a class="page-link" href="?page={{ page + 1 }}&size={{ size }}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="m-2">
+            <select id="page-size" class="form-select w-auto">
+                {% for i in [1, 5, 10, 50, 100] %}
+                <option value="{{ i }}"{% if i == size %} selected{% endif %}>{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/mpa/pagination.js') }}"></script>
+{% endblock %}

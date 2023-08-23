@@ -1,0 +1,6 @@
+[project]
+name = "biblemark"
+version = "1.0.0"
+description = "Web app enabling Bible highlights and personal annotations."
+readme = "README.md"
+maintainers = [{name = "Wellyson Freitas"}]
